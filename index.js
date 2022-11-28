@@ -16,14 +16,12 @@ const flavours = {
  */
 const flavourize = (inputText, flavour) => {
   if (flavours[flavour] === undefined) return '';
-  let flavourIndex = -1;
 
   const words = inputText.split(' ');
   const flavourizedWords = words.map((word, index) => {
-    if (flavourIndex === flavours[flavour].length - 1) flavourIndex = 0;
-    else flavourIndex++;
+    const randomIndex = Math.floor(Math.random() * flavours[flavour].length);
 
-    if (index === 0 || index % 3 === 0) return flavours[flavour][flavourIndex];
+    if (index === 0 || index % 3 === 0) return flavours[flavour][randomIndex];
     return word;
   });
   return flavourizedWords.join(' ');
