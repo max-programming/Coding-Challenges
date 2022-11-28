@@ -36,6 +36,7 @@ const updateOutput = text => {
 // event listener
 buttons.forEach(b => {
   b.addEventListener('click', e => {
+    e.preventDefault();
     const flavourizedWords = flavourize(textarea.value, b.dataset.flavour);
     updateOutput(flavourizedWords);
   });
